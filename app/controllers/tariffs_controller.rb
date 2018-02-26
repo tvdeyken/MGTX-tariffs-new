@@ -4,7 +4,7 @@ class TariffsController < ApplicationController
   # GET /tariffs
   # GET /tariffs.json
   def index
-    @tariffs = Tariff.all
+    @tariffs = Tariff.paginate(:page => params[:page], per_page: 500)
   end
 
   # GET /tariffs/1

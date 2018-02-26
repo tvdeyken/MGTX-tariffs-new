@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tariffs</h1>
 
+<h1>Tariffs</h1>
+<p>
+<%= will_paginate @tariffs %>
+</p>
 <table>
   <thead>
     <tr>
@@ -38,7 +41,8 @@
 
 <br>
 
-<%= link_to 'New Tariff', new_tariff_path %>
+<%= will_paginate @tariffs %>
+
 <div class="import_csv">
 <h2>Import tariffs</h2>
 <p>
