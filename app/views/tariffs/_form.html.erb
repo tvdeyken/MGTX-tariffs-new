@@ -1,0 +1,57 @@
+<%= form_with(model: tariff, local: true) do |form| %>
+  <% if tariff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tariff.errors.count, "error") %> prohibited this tariff from being saved:</h2>
+
+      <ul>
+      <% tariff.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :tariff_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip, id: :tariff_zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.number_field :weight, id: :tariff_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :tariff_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :carrier %>
+    <%= form.text_field :carrier, id: :tariff_carrier %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expire %>
+    <%= form.text_field :expire, id: :tariff_expire %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transit_time %>
+    <%= form.text_field :transit_time, id: :tariff_transit_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :loading_region %>
+    <%= form.text_field :loading_region, id: :tariff_loading_region %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

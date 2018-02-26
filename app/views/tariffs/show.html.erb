@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @tariff.country %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @tariff.zip %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @tariff.weight %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @tariff.price %>
+</p>
+
+<p>
+  <strong>Carrier:</strong>
+  <%= @tariff.carrier %>
+</p>
+
+<p>
+  <strong>Expire:</strong>
+  <%= @tariff.expire %>
+</p>
+
+<p>
+  <strong>Transit time:</strong>
+  <%= @tariff.transit_time %>
+</p>
+
+<p>
+  <strong>Loading region:</strong>
+  <%= @tariff.loading_region %>
+</p>
+
+<%= link_to 'Edit', edit_tariff_path(@tariff) %> |
+<%= link_to 'Back', tariffs_path %>

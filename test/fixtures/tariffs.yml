@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: MyString
+  zip: MyString
+  weight: 1
+  price: MyString
+  carrier: MyString
+  expire: MyString
+  transit_time: MyString
+  loading_region: MyString
+
+two:
+  country: MyString
+  zip: MyString
+  weight: 1
+  price: MyString
+  carrier: MyString
+  expire: MyString
+  transit_time: MyString
+  loading_region: MyString
