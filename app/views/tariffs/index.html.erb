@@ -39,3 +39,14 @@
 <br>
 
 <%= link_to 'New Tariff', new_tariff_path %>
+<div class="import_csv">
+<h2>Import tariffs</h2>
+<p>
+<%= form_tag import_tariffs_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Upload tariffs" %>
+	<% end %>
+</p>
+</div>
+
+

@@ -61,6 +61,12 @@ class TariffsController < ApplicationController
     end
   end
 
+  def import
+    params.permit(:country, :zip, :weight, :price, :carrier, :expire, :transit_time, :loading_region)
+    Tariff.import(params[:file])
+    redirect_to tariffs_path, notice: "Tariffs upload succeed"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tariff
