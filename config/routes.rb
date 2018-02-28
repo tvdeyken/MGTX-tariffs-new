@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'tariffs#index'
+
   resources :tariffs do
     collection { post :import }
   end
