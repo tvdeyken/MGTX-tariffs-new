@@ -11,35 +11,40 @@
 
 
 <p>
+  <h2>Search Results for</h2>
+  
+  
+</p>
+
+
+<p>
 <%= will_paginate @tariffs %>
 </p>
+
 <table>
   <thead>
     <tr>
-      <th>Country</th>
-      <th>Zip</th>
-      <th>Weight</th>
       <th>Price</th>
       <th>Carrier</th>
       <th>Expire</th>
       <th>Transit time</th>
       <th>Loading region</th>
-      <th colspan="1"></th>
+      <!-- <th colspan="1"></th> -->
     </tr>
   </thead>
 
   <tbody>
     <% @tariffs.each do |tariff| %>
       <tr>
-        <td><%= tariff.country %></td>
+        <!-- <td><%= tariff.country %></td>
         <td><%= tariff.zip %></td>
-        <td><%= tariff.weight %></td>
-        <td><%= tariff.price %></td>
+        <td><%= tariff.weight %></td> -->
+        <td>€<%= tariff.price %></td>
         <td><%= tariff.carrier %></td>
         <td><%= tariff.expire %></td>
-        <td><%= tariff.transit_time %></td>
+        <td><%= tariff.transit_time %> days</td>
         <td><%= tariff.loading_region %></td>
-        <td><%= link_to 'Show', tariff %></td>
+        <!-- <td><%= link_to 'Show', tariff %></td> -->
         <!-- <td><%= link_to 'Edit', edit_tariff_path(tariff) %></td>
         <td><%= link_to 'Destroy', tariff, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
