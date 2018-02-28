@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20180226140713) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "tariffs", force: :cascade do |t|
     t.string "country"
     t.string "zip"
-    t.integer "weight"
+    t.string "weight"
     t.string "price"
     t.string "carrier"
     t.string "expire"
