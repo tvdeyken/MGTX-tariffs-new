@@ -2,6 +2,13 @@
 
 
 <h1>Tariffs</h1>
+
+<%= form_tag(tariffs_path, method: :get) do %>
+  <%= text_field_tag :country %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+
 <p>
 <%= will_paginate @tariffs %>
 </p>
@@ -16,7 +23,7 @@
       <th>Expire</th>
       <th>Transit time</th>
       <th>Loading region</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -32,8 +39,8 @@
         <td><%= tariff.transit_time %></td>
         <td><%= tariff.loading_region %></td>
         <td><%= link_to 'Show', tariff %></td>
-        <td><%= link_to 'Edit', edit_tariff_path(tariff) %></td>
-        <td><%= link_to 'Destroy', tariff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Edit', edit_tariff_path(tariff) %></td>
+        <td><%= link_to 'Destroy', tariff, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

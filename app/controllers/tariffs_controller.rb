@@ -1,10 +1,14 @@
 class TariffsController < ApplicationController
-  before_action :set_tariff, only: [:show, :edit, :update, :destroy]
+  before_action :set_tariff, only: [:show]
 
   # GET /tariffs
   # GET /tariffs.json
   def index
-    @tariffs = Tariff.paginate(:page => params[:page], per_page: 500)
+     if params[:country]
+       @tariffs = Tariff.where('country LIKE ?', "%#{params[:country]}%").paginate(:page => params[:page], per_page: 10)
+     else
+       @tariffs = Tariff.paginate(:page => params[:page], per_page: 10)
+     end
   end
 
   # GET /tariffs/1
@@ -75,6 +79,6 @@ class TariffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tariff_params
-      params.require(:tariff).permit(:country, :zip, :weight, :price, :carrier, :expire, :transit_time, :loading_region)
+      params.require(:country).permit(:country, :zip, :weight, :loading_region)
     end
 end
