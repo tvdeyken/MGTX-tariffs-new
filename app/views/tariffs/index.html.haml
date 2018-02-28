@@ -1,0 +1,53 @@
+%p#notice= notice
+%h1 Tariffs
+/
+  <select id="e1">
+  </select>
+= render 'search', countries: @tariffs.unique_countries
+/
+  <haml_loud> form_tag(tariffs_path, method: :get) do </haml_loud><haml_block>
+  <haml_loud> text_field_tag :country </haml_loud>
+  <haml_loud> text_field_tag :zip </haml_loud>
+  <haml_loud> submit_tag &#39;Search&#39; </haml_loud>
+  </haml_block>
+%p
+%h2 Search Results for
+%p
+  = will_paginate @tariffs
+%table
+  %thead
+    %tr
+      %th Price
+      %th Carrier
+      %th Expire
+      %th Transit time
+      %th Loading region
+      / <th colspan="1"></th>
+  %tbody
+    - @tariffs.each do |tariff|
+      %tr
+        /
+          <td><haml_loud> tariff.country </haml_loud></td>
+          <td><haml_loud> tariff.zip </haml_loud></td>
+          <td><haml_loud> tariff.weight </haml_loud></td>
+        %td
+          €#{tariff.price}
+        %td= tariff.carrier
+        %td= tariff.expire
+        %td
+          = tariff.transit_time
+          days
+        %td= tariff.loading_region
+        / <td><haml_loud> link_to &#39;Show&#39;, tariff </haml_loud></td>
+        /
+          <td><haml_loud> link_to &#39;Edit&#39;, edit_tariff_path(tariff) </haml_loud></td>
+          <td><haml_loud> link_to &#39;Destroy&#39;, tariff, method: :delete, data: { confirm: &#39;Are you sure?&#39; } </haml_loud></td>
+%br/
+= will_paginate @tariffs
+.import_csv
+  %h2 Import tariffs
+  %p
+    = form_tag import_tariffs_path, multipart: true do
+      = file_field_tag :file
+      = submit_tag "Upload tariffs"
+= link_to 'New Tariff', new_tariff_path
