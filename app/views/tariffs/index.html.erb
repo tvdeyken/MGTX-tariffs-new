@@ -5,6 +5,7 @@
 
 <%= form_tag(tariffs_path, method: :get) do %>
   <%= text_field_tag :country %>
+  <%= text_field_tag :zip %>
   <%= submit_tag 'Search' %>
 <% end %>
 
