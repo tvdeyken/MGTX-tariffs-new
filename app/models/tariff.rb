@@ -1,7 +1,7 @@
 class Tariff < ApplicationRecord
   
   scope :unique_countries, ->{select('DISTINCT country').map{|c| c.country}.sort}
-  # scope :unique_zip_for_country, ->{select('DISTINCT country').map{|c| c.country}.sort}
+  scope :unique_zip, ->{select('DISTINCT zip').map{|c| c.zip}.sort}
   
   
   def self.import(file)
@@ -10,4 +10,8 @@ class Tariff < ApplicationRecord
     end 
   end  
 
+  def weight_value
+    weight.to_i
+  end
+  
 end

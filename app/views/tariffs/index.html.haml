@@ -17,6 +17,9 @@
 %table
   %thead
     %tr
+      %th Country
+      %th Zip
+      %th Weight
       %th Price
       %th Carrier
       %th Expire
@@ -27,6 +30,8 @@
     - @tariffs.each do |tariff|
       %tr
         %td= tariff.country
+        %td= tariff.zip
+        %td= tariff.weight
         %td
           €#{tariff.price}
         %td= tariff.carrier
