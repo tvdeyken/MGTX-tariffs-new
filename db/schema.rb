@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180226140713) do
   create_table "tariffs", force: :cascade do |t|
     t.string "country"
     t.string "zip"
-    t.string "weight"
+    t.integer "weight"
     t.string "price"
     t.string "carrier"
     t.string "expire"

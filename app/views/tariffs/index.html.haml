@@ -13,7 +13,6 @@
 %p
 %h2 Search Results for
 %p
-  = will_paginate @tariffs
 %table
   %thead
     %tr
@@ -40,8 +39,10 @@
           = tariff.transit_time
           days
         %td= tariff.loading_region
-%br/
-= will_paginate @tariffs
+%br
+
+
+
 .import_csv
   %h2 Import tariffs
   %p

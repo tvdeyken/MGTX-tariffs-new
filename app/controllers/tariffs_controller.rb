@@ -5,9 +5,9 @@ class TariffsController < ApplicationController
   # GET /tariffs.json
   def index
      if params[:country] && params[:zip] && params[:weight]
-       @tariffs = Tariff.where('country LIKE ?', "%#{params[:country]}%").where('zip LIKE ?', "%#{params[:zip]}%").where('weight LIKE ?', "%#{params[:weight]}%").paginate(:page => params[:page], per_page: 10)
+       @tariffs = Tariff.where('country LIKE ?', "%#{params[:country]}%").where('zip LIKE ?', "%#{params[:zip]}%").where('weight >= ?', "#{params[:weight]}").limit(1)
      else
-       @tariffs = Tariff.paginate(:page => params[:page], per_page: 10)
+       @tariffs = Tariff.all.limit(0)
        # TODO redirect to search page
      end
   end
