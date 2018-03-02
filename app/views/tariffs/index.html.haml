@@ -3,7 +3,7 @@
 /
   <select id="e1">
   </select>
-= render 'search', countries: @tariffs.unique_countries
+= render 'search', countries: Tariff.unique_countries
 /
   <haml_loud> form_tag(tariffs_path, method: :get) do </haml_loud><haml_block>
   <haml_loud> text_field_tag :country </haml_loud>
@@ -26,10 +26,7 @@
   %tbody
     - @tariffs.each do |tariff|
       %tr
-        /
-          <td><haml_loud> tariff.country </haml_loud></td>
-          <td><haml_loud> tariff.zip </haml_loud></td>
-          <td><haml_loud> tariff.weight </haml_loud></td>
+        %td= tariff.country
         %td
           €#{tariff.price}
         %td= tariff.carrier
@@ -38,10 +35,6 @@
           = tariff.transit_time
           days
         %td= tariff.loading_region
-        / <td><haml_loud> link_to &#39;Show&#39;, tariff </haml_loud></td>
-        /
-          <td><haml_loud> link_to &#39;Edit&#39;, edit_tariff_path(tariff) </haml_loud></td>
-          <td><haml_loud> link_to &#39;Destroy&#39;, tariff, method: :delete, data: { confirm: &#39;Are you sure?&#39; } </haml_loud></td>
 %br/
 = will_paginate @tariffs
 .import_csv
